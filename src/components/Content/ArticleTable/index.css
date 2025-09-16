@@ -1,0 +1,41 @@
+/* 内容区域 */
+.main {
+    height: 100%;
+    flex: 1;
+}
+
+.top-nav {
+    height: 60px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 40px;
+}
+
+.nav-item span {
+    cursor: pointer;
+}
+
+.nav-item span:last-of-type {
+    margin-left: 20px;
+}
+.wrap {
+    min-height: 100%;
+    display: flex;
+}
+/* 表格列表部分 */
+.table img {
+    width: 100px;
+    height: 100px;
+}
+
+.table .bi {
+    cursor: pointer;
+}
+
+/* 分页 */
+.page-now {
+    line-height: 40px;
+    padding: 0 20px;
+}

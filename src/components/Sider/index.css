@@ -1,0 +1,170 @@
+/* 侧边栏 */
+.sider {
+    width: 260px;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #1a2b47 0%, #0d1a2d 100%);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+}
+
+.sider-header {
+    padding: 30px 25px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sider-header h2 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+    letter-spacing: 1px;
+}
+
+.sider-subtitle {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+/* 导航菜单 */
+.sider-nav {
+    padding: 20px 0;
+    flex: 1;
+    margin: 0;
+}
+
+.sider-nav li {
+    list-style: none;
+    margin-bottom: 5px;
+    padding: 0 15px;
+}
+
+.sider-nav-link {
+    display: flex;
+    align-items: center;
+    padding: 14px 20px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.sider-nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    transform: translateX(5px);
+}
+
+.sider-nav-link.active {
+    background: linear-gradient(90deg, #409EFF 0%, rgba(64, 158, 255, 0.5) 100%);
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(64, 158, 255, 0.3);
+}
+
+.sider-nav-link.active::before {
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 40%;
+    background: #409EFF;
+    border-radius: 0 4px 4px 0;
+}
+
+.icon {
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+.link-text {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* 底部用户信息 */
+.sider-footer {
+    padding: 20px 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(64, 158, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    color: #409EFF;
+}
+
+.user-details {
+    flex: 1;
+}
+
+.user-name {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.user-role {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 12px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .sider {
+        width: 70px;
+    }
+
+    .sider-header h2,
+    .link-text,
+    .sider-subtitle,
+    .user-details {
+        display: none;
+    }
+
+    .sider-header {
+        padding: 20px 15px;
+        text-align: center;
+    }
+
+    .sider-nav-link {
+        justify-content: center;
+        padding: 15px;
+    }
+
+    .icon {
+        margin-right: 0;
+    }
+
+    .user-info {
+        justify-content: center;
+    }
+
+    .user-avatar {
+        margin-right: 0;
+    }
+}

@@ -1,0 +1,144 @@
+/* components/Layout/index.css */
+:root {
+    --sider-width: 250px;
+    --sider-collapsed-width: 80px;
+    --header-height: 64px;
+    --bg-color: #f8f9fa;
+    --border-color: #eaeaea;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --transition: all 0.2s ease-in-out;
+}
+
+.layout-wrap {
+    min-height: 100vh;
+    display: flex;
+    background-color: var(--bg-color);
+    position: relative;
+}
+
+/* 侧边栏样式 */
+.layout-sider {
+    width: var(--sider-width);
+    background: #fff;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    z-index: 100;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* 主内容区域 */
+.layout-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: var(--sider-width);
+    transition: var(--transition);
+    min-height: 100vh;
+}
+
+/* 内容区域 */
+.layout-content {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+}
+
+/* 侧边栏折叠状态 */
+.sidebar-collapsed .layout-sider {
+    width: var(--sider-collapsed-width);
+}
+
+.sidebar-collapsed .layout-main {
+    margin-left: var(--sider-collapsed-width);
+}
+
+/* 移动端遮罩层 */
+.layout-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 90;
+    display: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 992px) {
+    .layout-sider {
+        transform: translateX(-100%);
+        z-index: 100;
+    }
+
+    .layout-main {
+        margin-left: 0 !important;
+    }
+
+    .sidebar-collapsed .layout-sider {
+        transform: translateX(0);
+        width: var(--sider-width);
+    }
+
+    .layout-mask {
+        display: block;
+    }
+}
+
+/* 滚动条样式 */
+.layout-sider::-webkit-scrollbar {
+    width: 6px;
+}
+
+.layout-sider::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.layout-sider::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.layout-sider::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+.layout-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.layout-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.layout-content::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.layout-content::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* 动画效果 */
+.layout-sider,
+.layout-main {
+    transition: var(--transition);
+}
+
+/* 深色模式支持 */
+@media (prefers-color-scheme: dark) {
+    .layout-wrap {
+        --bg-color: #1a1a1a;
+        --border-color: #2d2d2d;
+    }
+
+    .layout-sider {
+        background: #242424;
+    }
+}

@@ -1,0 +1,44 @@
+.wrap {
+    min-height: 100%;
+    display: flex;
+}
+.main {
+    height: 100%;
+    flex: 1;
+}
+/* 表单部分 */
+.form-check,
+.form-select {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.form-select {
+    width: auto;
+}
+
+.body form>div {
+    margin-top: 20px;
+}
+/* 卡片容器布局 */
+.content {
+    padding: 30px;
+}
+
+.card {
+    box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+    border: 1px solid #ebeef5;
+    padding: 20px;
+}
+
+.card:nth-child(n + 2) {
+    margin-top: 30px;
+}
+
+.card .title {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ebeef5;
+
+}
