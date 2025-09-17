@@ -1,41 +1,341 @@
-/* 内容区域 */
-.main {
-    height: 100%;
-    flex: 1;
+/* 全局样式 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.top-nav {
-    height: 60px;
-    border-bottom: 1px solid #ddd;
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background-color: #f5f7f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* 内容管理容器 */
+.content-management {
+    padding: 20px;
+}
+
+/* 头部标题 */
+.content-header {
+    margin-bottom: 20px;
+}
+
+.content-header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2d3d;
+}
+
+/* 筛选控件 */
+.filter-controls {
     display: flex;
-    justify-content: flex-end;
+    gap: 30px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.filter-group {
+    display: flex;
     align-items: center;
-    padding-right: 40px;
 }
 
-.nav-item span {
-    cursor: pointer;
+.filter-group label {
+    font-weight: 500;
+    margin-right: 10px;
+    white-space: nowrap;
 }
 
-.nav-item span:last-of-type {
-    margin-left: 20px;
-}
-.wrap {
-    min-height: 100%;
+.filter-options {
     display: flex;
-}
-/* 表格列表部分 */
-.table img {
-    width: 100px;
-    height: 100px;
+    gap: 10px;
 }
 
-.table .bi {
+.filter-options button {
+    padding: 6px 12px;
+    border: 1px solid #dcdfe6;
+    background: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-options button:hover {
+    color: #409eff;
+    border-color: #c6e2ff;
+    background-color: #ecf5ff;
+}
+
+.filter-options button.active {
+    color: #409eff;
+    border-color: #409eff;
+    background-color: #ecf5ff;
+}
+
+.filter-group select {
+    padding: 6px 12px;
+    border: 1px solid #dcdfe6;
+    border-radius: 4px;
+    background: #fff;
     cursor: pointer;
 }
 
-/* 分页 */
-.page-now {
-    line-height: 40px;
-    padding: 0 20px;
+/* 内容卡片 */
+.content-card {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+/* 表格样式 */
+.table-responsive {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.article-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.article-table th,
+.article-table td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid #eaeef2;
+}
+
+.article-table th {
+    background-color: #f9fafc;
+    font-weight: 500;
+    color: #606266;
+    position: relative;
+}
+
+.article-table th.sortable {
+    cursor: pointer;
+    user-select: none;
+}
+
+.article-table th.sortable:hover {
+    background-color: #f5f7fa;
+}
+
+.sort-icon {
+    margin-left: 4px;
+    font-size: 12px;
+}
+
+/* 表格列宽 */
+.cover-col {
+    width: 80px;
+}
+
+.title-col {
+    min-width: 200px;
+}
+
+.status-col {
+    width: 100px;
+}
+
+.date-col {
+    width: 120px;
+}
+
+.number-col {
+    width: 90px;
+}
+
+.action-col {
+    width: 150px;
+}
+
+/* 文章封面 */
+.article-cover {
+    width: 60px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+/* 文章标题 */
+.article-title {
+    font-weight: 500;
+    color: #1f2d3d;
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* 数字单元格 */
+.number-cell {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    color: #606266;
+}
+
+/* 状态标签 */
+.status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-approved {
+    background-color: #f0f9eb;
+    color: #67c23a;
+}
+
+.status-pending {
+    background-color: #f4f4f5;
+    color: #909399;
+}
+
+.status-rejected {
+    background-color: #fef0f0;
+    color: #f56c6c;
+}
+
+.status-unknown {
+    background-color: #f4f4f5;
+    color: #909399;
+}
+
+/* 操作按钮 */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-edit,
+.btn-delete {
+    padding: 6px 12px;
+    border: 1px solid;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-edit {
+    color: #409eff;
+    border-color: #409eff;
+    background: #fff;
+}
+
+.btn-edit:hover {
+    color: #fff;
+    background-color: #409eff;
+}
+
+.btn-delete {
+    color: #f56c6c;
+    border-color: #f56c6c;
+    background: #fff;
+}
+
+.btn-delete:hover {
+    color: #fff;
+    background-color: #f56c6c;
+}
+
+/* 无数据提示 */
+.no-data {
+    text-align: center;
+    padding: 40px;
+    color: #909399;
+}
+
+/* 表格底部 */
+.table-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-top: 1px solid #eaeef2;
+}
+
+.pagination-info {
+    color: #606266;
+    font-size: 14px;
+}
+
+.pagination-controls {
+    display: flex;
+    gap: 6px;
+}
+
+.pagination-btn {
+    padding: 6px 12px;
+    border: 1px solid #d9d9d9;
+    background: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    color: #409eff;
+    border-color: #409eff;
+}
+
+.pagination-btn.active {
+    color: #fff;
+    background-color: #409eff;
+    border-color: #409eff;
+}
+
+.pagination-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* 响应式设计 */
+@media (max-width: 992px) {
+    .filter-controls {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .article-table th,
+    .article-table td {
+        padding: 12px 8px;
+    }
+
+    .table-footer {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .pagination-controls {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-management {
+        padding: 10px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .article-table th:nth-child(5),
+    .article-table td:nth-child(5),
+    .article-table th:nth-child(6),
+    .article-table td:nth-child(6) {
+        display: none;
+    }
 }
